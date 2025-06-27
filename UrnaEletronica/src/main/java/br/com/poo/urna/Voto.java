@@ -22,28 +22,28 @@ public class Voto {
     }
 
     public int getnumDigitado() {
-        return numDigitado;
+       return numDigitado;
     }
 
     public void setNumDigitado(int numDigitado) {
-        this.numDigitado = numDigitado;
+       this.numDigitado = numDigitado;
     }
 
     public Candidato getCandidato() {
-        return candidato;
+       return candidato;
     }
 
     public void setCandidato(Candidato candidato) {
-        this.candidato = candidato;
+       this.candidato = candidato;
     }
     
     public void verificarVoto(int numDigitado, Candidato candidato){
-        if(numDigitado == candidato.getNumero()){
+       if(numDigitado == candidato.getNumero()){
             
-        }
-        else{
+       }
+       if(numDigitado == null){
             
-        }
+       }
     }
     
 }
