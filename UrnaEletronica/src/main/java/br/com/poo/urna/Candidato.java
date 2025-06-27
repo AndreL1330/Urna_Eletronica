@@ -8,23 +8,17 @@ package br.com.poo.urna;
  *
  * @author Jean
  */
-public class Candidato {
+public class Candidato extends Partido{
     private String nome;
-    private int numero;
-    private String partido;
+    private int numero;    
     
-    
-    
-  public Candidato(String nome,int numero,String partido){
-  
+    public Candidato(String nome,int numero,String sigla){
+        super(sigla);
         setNome(nome);
         setNumero(numero);
-        setPartido(partido);
-      
-      
-  }
+    }
   
-     public String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -32,20 +26,12 @@ public class Candidato {
         this.nome = nome;
     }
 
-   public int getNumero(){
-       return numero;
-   }
-  
-  public void setNumero(int numero){
-      this.numero = numero;
-  }
-  
-   public String getPartido() {
-        return partido;
+    public int getNumero(){
+        return numero;
     }
-   
-  public void setPartido(String partido){
-      this.partido = partido;
-  } 
+
+    public void setNumero(int numero){
+        this.numero = numero;
+    }
 }
 
