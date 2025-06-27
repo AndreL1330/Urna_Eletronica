@@ -9,11 +9,11 @@ package br.com.poo.urna;
  * @author 232.976682
  */
 public class Voto {
-    private int NumDigitado;
+    private int numDigitado;
     private Candidato candidato;
     
-    public Voto(int NumDigitado, Candidato candidato){
-        setNumDigitado(NumDigitado);
+    public Voto(int numDigitado, Candidato candidato){
+        setNumDigitado(numDigitado);
         setCandidato(candidato);
     }
     
@@ -21,12 +21,12 @@ public class Voto {
         
     }
 
-    public int getNumDigitado() {
-        return NumDigitado;
+    public int getnumDigitado() {
+        return numDigitado;
     }
 
-    public void setNumDigitado(int NumDigitado) {
-        this.NumDigitado = NumDigitado;
+    public void setNumDigitado(int numDigitado) {
+        this.numDigitado = numDigitado;
     }
 
     public Candidato getCandidato() {
@@ -37,8 +37,13 @@ public class Voto {
         this.candidato = candidato;
     }
     
-    //if(NumDigitado == ){
-    
-//}
+    public void verificarVoto(int numDigitado, Candidato candidato){
+        if(numDigitado == candidato.getNumero()){
+            
+        }
+        else{
+            
+        }
+    }
     
 }
