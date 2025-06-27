@@ -17,6 +17,10 @@ public class Candidato extends Partido{
         setNome(nome);
         setNumero(numero);
     }
+    
+    public Candidato(){
+        
+    }
   
     public String getNome() {
         return nome;
