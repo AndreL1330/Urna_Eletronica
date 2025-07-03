@@ -4,6 +4,9 @@
  */
 package br.com.poo.Main;
 
+import br.com.poo.urna.Candidato;
+import br.com.poo.urna.MongoDB.ManterCandidatoService;
+
 /**
  *
  * @author Jean
@@ -11,12 +14,21 @@ package br.com.poo.Main;
 public class JFrameUrna extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFrameUrna.class.getName());
-
+    
     /**
      * Creates new form JFrameUrna
      */
     public JFrameUrna() {
         initComponents();
+        
+        service = new ManterCandidatoService();
+        labNome.setText("");
+        labNumero.setText("");
+        labPartido.setText("");
+        labImage.setText("");
+        labImage.setIcon(null);
+        StringBuilder numCandiadto = new StringBuilder();
+        
     }
     
     
@@ -52,6 +64,7 @@ public class JFrameUrna extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         labAviso = new javax.swing.JLabel();
         txtVoto = new javax.swing.JTextField();
+        labImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,6 +179,11 @@ public class JFrameUrna extends javax.swing.JFrame {
         btnConf.setBackground(new java.awt.Color(0, 153, 0));
         btnConf.setForeground(new java.awt.Color(0, 0, 0));
         btnConf.setText("CONFIRMA");
+        btnConf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Vereador:");
@@ -184,6 +202,8 @@ public class JFrameUrna extends javax.swing.JFrame {
         labPartido.setText("jLabel12");
 
         labAviso.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+
+        labImage.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -220,6 +240,10 @@ public class JFrameUrna extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel2)))
                         .addGap(117, 117, 117))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labImage)
+                .addGap(55, 55, 55))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,7 +253,9 @@ public class JFrameUrna extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labNumero)
                     .addComponent(txtVoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(1, 1, 1)
+                .addComponent(labImage)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labName)
                     .addComponent(labNome))
@@ -327,42 +353,52 @@ public class JFrameUrna extends javax.swing.JFrame {
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
 
        txtVoto.setText("3");
+       numCandidato.append("3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         txtVoto.setText("1");
+        numCandidato.append("1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         txtVoto.setText("0");
+        numCandidato.append("0");
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         txtVoto.setText("2");
+        numCandidato.append("2");
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         txtVoto.setText("4");
+        numCandidato.append("4");
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         txtVoto.setText("5");
+        numCandidato.append("5");
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         txtVoto.setText("6");
+        numCandidato.append("6");
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         txtVoto.setText("7");
+        numCandidato.append("7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         txtVoto.setText("8");
+        numCandidato.append("8");
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
        txtVoto.setText("9");
+       numCandidato.append("9");
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCorrigeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorrigeActionPerformed
@@ -374,7 +410,19 @@ public class JFrameUrna extends javax.swing.JFrame {
         labNumero.setText(" ");
         labPart.setText(" ");
         labAviso.setText("VOTO EM BRANCO");
+        numCandidato.append("00000"); 
+        /* adicionar ao banco de dados
+        _id: 00000
+        qtdVotos:""
+        */
     }//GEN-LAST:event_btnBrancoActionPerformed
+
+    private void btnConfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfActionPerformed
+        Candidato vo = service.findByNumber(Integer.parseInt(numCandidato.toString()));
+        labNome.setText(vo.getNome());
+        labNumero.setText("" + vo.getNumero());
+        labPartido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/" + vo.getNumero() + ".png")));
+    }//GEN-LAST:event_btnConfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,6 +449,8 @@ public class JFrameUrna extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new JFrameUrna().setVisible(true));
     }
 
+        private StringBuilder numCandidato;
+        private ManterCandidatoService service ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn0;
     private javax.swing.JButton btn1;
@@ -419,6 +469,7 @@ public class JFrameUrna extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel labAviso;
+    private javax.swing.JLabel labImage;
     private javax.swing.JLabel labName;
     private javax.swing.JLabel labNome;
     private javax.swing.JLabel labNumero;
